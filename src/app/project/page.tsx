@@ -4,12 +4,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import React, { useEffect } from "react"
 import { projectSliceActions } from "../store/reducers/project";
 import Card from '../components/Cards';
-const About = () => {
+const Project = () => {
     const dispatch = useDispatch();
     const { projects, loading } = useSelector((state: any) => state.project);
 
     useEffect(() => {
         dispatch(projectSliceActions.setProjectRequestLoading({ loading: true })); // saga watchers are listening to this action
+        console.log("projects")
     }, [dispatch]);
 
     return (
@@ -26,4 +27,4 @@ const About = () => {
     );
 }
 
-export default About
+export default Project

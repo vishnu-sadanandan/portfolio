@@ -12,9 +12,8 @@ const Menu = () => {
   const { menus, loading } = useSelector((state: any) => state.menu);
 
   return (
-    <aside
-      className={`${isExpanded ? "w-64" : "w-20"
-        } bg-gray-900 text-white flex flex-col h-screen transition-all duration-300`}
+    <aside key={`Sidebar`}
+      className={`${isExpanded ? "w-64" : "w-20"} bg-gray-900 text-white flex flex-col h-screen transition-all duration-300`}
     >
       {/* Logo & Toggle Button */}
       <div
@@ -34,11 +33,7 @@ const Menu = () => {
 
       {/* Navigation Links */}
       <nav className="flex-1 mt-6">
-
-
-
         <ul>
-
           {loading && <li>
             <Link
               href="#"
@@ -49,10 +44,10 @@ const Menu = () => {
           </li>}
           {!loading && menus && menus.length > 0 && menus.filter((m: any) => m.name !== "Settings").map((m: any) => {
             const icon = m.icon
-            const IconComponent = FiIcons[m.icon as IconKey];
-            return (<li>
+            const IconComponent = FiIcons[icon as IconKey];
+            return (<li key={m.id}>
               <Link
-                href={`/${m.path}`}
+                href={`${m.path}`}
                 className="flex items-center px-4 py-3 text-sm font-medium hover:bg-gray-700 rounded-md"
               >
                 <IconComponent className="w-6 h-6 text-gray-400" />
@@ -67,8 +62,9 @@ const Menu = () => {
       {!loading && menus && menus.length > 0 && menus.filter((m: any) => m.name === "Settings").map((m: any) => {
         const icon = m.icon
         const IconComponent = FiIcons[m.icon as IconKey];
-        return (<div className="border-t border-gray-700">
+        return (<div key={m.id} className="border-t border-gray-700">
           <Link
+            key={m.id}
             href="#"
             className="flex items-center px-4 py-3 text-sm font-medium hover:bg-gray-700 rounded-md"
           >

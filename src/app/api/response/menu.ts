@@ -12,7 +12,7 @@ export const menu = [
         "name": "Projects",
         "active": false,
         "description": "Showcase of projects",
-        "path": "/projects",
+        "path": "/project",
         "icon": "FiClipboard"
     },
     {
@@ -20,7 +20,7 @@ export const menu = [
         "name": "Skills",
         "active": false,
         "description": "List of technical and soft skills",
-        "path": "/skills",
+        "path": "/skill",
         "icon": "FiBook"
     },
     {
@@ -28,7 +28,7 @@ export const menu = [
         "name": "Educations",
         "active": false,
         "description": "Academic qualifications and certifications",
-        "path": "/educations",
+        "path": "/education",
         "icon": "FiUsers"
     },
     {

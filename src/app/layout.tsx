@@ -15,18 +15,18 @@ const geistMono = Geist_Mono({
 });
 
 export default function RootLayout({
-  pages,
+  children,
 }: Readonly<{
-  pages: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-
+  
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <App pages={pages}/>
+          <App pages={children}/>
         </Providers>
       </body>
     </html>

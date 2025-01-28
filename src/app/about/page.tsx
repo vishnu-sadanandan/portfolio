@@ -9,6 +9,7 @@ const About = () => {
 
     useEffect(() => {
         dispatch(contentSliceActions.setContentRequestLoading({ loading: true })); // saga watchers are listening to this action
+        console.log("contents")
     }, [dispatch]);
 
     return (

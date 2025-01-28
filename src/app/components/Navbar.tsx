@@ -16,8 +16,8 @@ const Navbar = () => {
                         rel="noopener noreferrer"
                         href="#">Loading</Link>
                 </li>}
-                {!loading && menus && menus.length > 0 && menus.filter((m: any) => m.name !== "Settings").map((m: any) => (<li>
-                    <Link key={m.id}
+                {!loading && menus && menus.length > 0 && menus.filter((m: any) => m.name !== "Settings").map((m: any) => (<li  key={m.id}>
+                    <Link
                         className="flex items-center gap-2 hover:underline hover:underline-offset-4"
                         rel="noopener noreferrer"
                         href={`${m.path}`}>{m.name}</Link>

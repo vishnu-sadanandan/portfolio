@@ -17,6 +17,7 @@ export default function App({
 
   useEffect(() => {
     dispatch(menuSliceActions.setMenuRequestLoading({ loading: true })); // saga watchers are listening to this action
+    console.log("app")
   }, [dispatch]);
 
   return (
