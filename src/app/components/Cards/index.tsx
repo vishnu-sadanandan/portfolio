@@ -1,14 +1,14 @@
 // Card.tsx (Component)
 import React from 'react';
 import "./style.css"
+
 interface CardProps {
   title: string;
   description: string;
-  imageUrl: string;
   buttonText: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, imageUrl, buttonText }) => {
+const Card: React.FC<CardProps> = ({ title, description, buttonText }) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
       {/* <img className="w-full h-48 object-cover" src={imageUrl} alt={title} /> */}

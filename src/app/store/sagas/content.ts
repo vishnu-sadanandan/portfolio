@@ -1,5 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { contentSliceActions, contentSliceActionsTypes } from "../reducers/content";
+import { Content } from "@/app/api/response/types";
 
 const apiUrl = "/api/about";
 async function fetchContents() {
@@ -17,13 +18,13 @@ async function fetchContents() {
   }
 }
 
-function* setContents():Generator<any, any, any> {
+function* setContents():Generator<unknown, void, Content[]> {
   try {
     const data = yield call(fetchContents);
     yield put(contentSliceActions.setContents(data));
     yield put(contentSliceActions.setContentRequestCompleted({loading:false}));
   } catch (error) {
-    // yield put(fetchDataFailure(error.message));
+    throw new Error(`"Something went wrong!" ${error}`);
   }
 }
 

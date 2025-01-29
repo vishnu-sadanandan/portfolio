@@ -2,14 +2,16 @@
 
 // app/components/Menu.tsx
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import * as FiIcons from 'react-icons/fi';
 type IconKey = keyof typeof FiIcons;
 import { useSelector } from 'react-redux';
+import { Menu as MenuType, State } from '../api/response/types';
 
 const Menu = () => {
   const [isExpanded, setIsExpanded] = useState(true);
-  const { menus, loading } = useSelector((state: any) => state.menu);
+  const { menus, loading } = useSelector((state: State) => state.menu);
 
   return (
     <aside key={`Sidebar`}
@@ -20,7 +22,7 @@ const Menu = () => {
         className="flex items-center justify-between h-16 px-4 border-b border-gray-700 cursor-pointer"
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <img
+        <Image
           src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
           alt="Logo"
           className={`h-8 transition-all duration-300 ${isExpanded ? "block" : "mx-auto"
@@ -42,9 +44,9 @@ const Menu = () => {
               Loading
             </Link>
           </li>}
-          {!loading && menus && menus.length > 0 && menus.filter((m: any) => m.name !== "Settings").map((m: any) => {
+          {!loading && menus && menus.length > 0 && menus.filter((m) => m.name !== "Settings").map((m: MenuType) => {
             const icon = m.icon
-            const IconComponent = FiIcons[icon as IconKey];
+            const IconComponent = FiIcons[icon as unknown as IconKey];
             return (<li key={m.id}>
               <Link
                 href={`${m.path}`}
@@ -59,9 +61,8 @@ const Menu = () => {
       </nav>
 
       {/* Footer (Settings) */}
-      {!loading && menus && menus.length > 0 && menus.filter((m: any) => m.name === "Settings").map((m: any) => {
-        const icon = m.icon
-        const IconComponent = FiIcons[m.icon as IconKey];
+      {!loading && menus && menus.length > 0 && menus.filter((m: MenuType) => m.name === "Settings").map((m: MenuType) => {
+        const IconComponent = FiIcons[m.icon as unknown as IconKey];
         return (<div key={m.id} className="border-t border-gray-700">
           <Link
             key={m.id}

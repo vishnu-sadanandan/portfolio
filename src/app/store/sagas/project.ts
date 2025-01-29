@@ -1,5 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { projectSliceActions, projectSliceActionsTypes } from "../reducers/project";
+import { Project } from "@/app/api/response/types";
 
 const apiUrl = "/api/project";
 async function fetchProjects() {
@@ -17,13 +18,13 @@ async function fetchProjects() {
   }
 }
 
-function* setProjects():Generator<any, any, any> {
+function* setProjects():Generator<unknown, void, Project[]> {
   try {
     const data = yield call(fetchProjects);
     yield put(projectSliceActions.setProjects(data));
     yield put(projectSliceActions.setProjectRequestCompleted({loading:false}));
   } catch (error) {
-    // yield put(fetchDataFailure(error.message));
+    throw new Error(`"Something went wrong!" ${error}`);
   }
 }
 

@@ -3,9 +3,10 @@
 // app/components/Navbar.tsx
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
+import { Menu as MenuType,State } from '../api/response/types';
 
 const Navbar = () => {
-    const { menus, loading } = useSelector((state: any) => state.menu);
+    const { menus, loading } = useSelector((state:State) => state.menu);
 
     return (
         <nav className={"flex"}>
@@ -16,7 +17,7 @@ const Navbar = () => {
                         rel="noopener noreferrer"
                         href="#">Loading</Link>
                 </li>}
-                {!loading && menus && menus.length > 0 && menus.filter((m: any) => m.name !== "Settings").map((m: any) => (<li  key={m.id}>
+                {!loading && menus && menus.length > 0 && menus.filter((m: MenuType) => m.name !== "Settings").map((m: MenuType) => (<li  key={m.id}>
                     <Link
                         className="flex items-center gap-2 hover:underline hover:underline-offset-4"
                         rel="noopener noreferrer"
