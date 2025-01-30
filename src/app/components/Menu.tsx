@@ -23,10 +23,12 @@ const Menu = () => {
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+          src="/React-icon.svg"
           alt="Logo"
           className={`h-8 transition-all duration-300 ${isExpanded ? "block" : "mx-auto"
             }`}
+            width={20}
+            height={20}
         />
         {isExpanded && (
           <FiIcons.FiMenu className="text-gray-400 text-2xl cursor-pointer" />

@@ -15,9 +15,6 @@ const About = () => {
 
     return (
         <div>
-            <h1>
-                <p>{!loading && contents && contents.length > 0 && contents[0].title}</p>
-            </h1>
             <p>{loading && `Loading ...`}</p>
             <p>{!loading && contents && contents.length > 0 && contents[0].content}</p>
         </div>

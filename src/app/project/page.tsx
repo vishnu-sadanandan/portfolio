@@ -16,9 +16,6 @@ const Project = () => {
 
     return (
         <div>
-            <h1>
-                <p>{!loading && projects && projects.length > 0 && `Projects`}</p>
-            </h1>
             <p>{loading && `Loading ...`}</p>
             <div className={`row-start-3 flex gap-6 flex-wrap items-center justify-center`}>
             {!loading && projects && projects.length > 0 && projects.map((p:ProjectType) => (<Card key={p.id} title={p.name} description={p.description} buttonText={'View'} />))}
