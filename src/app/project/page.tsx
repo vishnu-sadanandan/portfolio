@@ -1,10 +1,10 @@
 'use client';
 
-import { useSelector, useDispatch } from 'react-redux'
-import React, { useEffect } from "react"
-import { projectSliceActions } from "../store/reducers/project";
-import Card from '../components/Cards';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { Project as ProjectType, State } from '../api/response/types';
+import { projectSliceActions } from "../store/reducers/project";
+import { ProjectCard } from './ProjectCard';
 
 const Project = () => {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Project = () => {
         <div>
             <p>{loading && `Loading ...`}</p>
             <div className={`row-start-3 flex gap-6 flex-wrap items-center justify-center`}>
-            {!loading && projects && projects.length > 0 && projects.map((p:ProjectType) => (<Card key={p.id} title={p.name} description={p.description} buttonText={'View'} />))}
+            {!loading && projects && projects.length > 0 && projects.map((p:ProjectType) => (<ProjectCard key={p.id} project={p} />))}
             </div>
 
         </div>

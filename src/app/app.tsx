@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Navbar from './components/Navbar';
 import Footer from "./components/Footer";
 import Menu from "./components/Menu";
+import { skillSliceActions } from "./store/reducers/skill";
 
 export default function App({
   pages,
@@ -17,8 +18,11 @@ export default function App({
 
   useEffect(() => {
     dispatch(menuSliceActions.setMenuRequestLoading({ loading: true })); // saga watchers are listening to this action
-    console.log("app")
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(skillSliceActions.setSkillRequestLoading({ loading: true })); // saga watchers are listening to this action
+}, [dispatch]);
 
   return (
     <div className="flex flex-1">
