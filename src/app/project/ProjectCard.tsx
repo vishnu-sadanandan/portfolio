@@ -8,5 +8,13 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     const { skills } = useSelector((state: State) => state.skill);
     const menuOptions = skills.filter(o => project.skill.includes(o.skill))
-    return ((<Card key={project.id} title={project.name} description={project.description} headerImg={project.companyPrefix} menuOptions={menuOptions} />))
+
+
+
+
+
+
+
+    
+    return ((<Card key={project.id} title={project.name} description={project.description} headerImg={project.companyPrefix} menuOptions={menuOptions} page={`${project.id}`}/>))
 }

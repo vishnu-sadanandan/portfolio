@@ -1,4 +1,6 @@
 // Card.tsx (Component)
+
+import Link from "next/link";
 import React from 'react';
 import "./style.css";
 import IconButton from '../Button/IconButton';
@@ -6,16 +8,16 @@ import { FiChevronDown, FiCpu, FiGithub, FiLink } from 'react-icons/fi';
 import { Skill } from '@/app/api/response/types';
 import Image from "next/image"
 interface CardProps {
+  page: string;
   menuOptions?: Skill[]
   title: string;
   description: string;
   headerImg?: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, headerImg, menuOptions }) => {
+const Card: React.FC<CardProps> = ({ page, title, description, headerImg, menuOptions }) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white transition-shadow duration-300 hover:shadow-2xl">
-
       <div className="p-4">
         <div className="flex col-2 justify-between items-center">
           <h2 className="text-2xl font-semibold text-gray-800">{title}</h2>
@@ -34,7 +36,9 @@ const Card: React.FC<CardProps> = ({ title, description, headerImg, menuOptions 
           <IconButton Icon={FiLink} tooltip="Hosted URL" />
           <IconButton Icon={FiGithub} tooltip="Github" />
           <IconButton Icon={FiCpu} menuOptions={menuOptions} tooltip="Technologies" />
-          <IconButton Icon={FiChevronDown} tooltip="More" />
+          <Link href={`/project/${page}`} >
+            <IconButton Icon={FiChevronDown} tooltip="More" />
+          </Link>
         </div>
       </div>
     </div>
