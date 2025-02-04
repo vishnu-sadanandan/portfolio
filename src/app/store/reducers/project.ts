@@ -6,24 +6,24 @@ const projectSlice = createSlice({
   reducers: {
     setProjects(state, action) {
       const projects = action.payload;
-      state.projects = projects
+      state.projects = projects;
     },
-    setProjectRequestLoading(state,action) {
-      const {loading} = action.payload;
+    setProjectRequestLoading(state, action) {
+      const { loading } = action.payload;
       return {
         ...state,
-        loading: loading
+        loading: loading,
       };
     },
-    setProjectRequestCompleted(state,action) {
-      const {loading} = action.payload;
+    setProjectRequestCompleted(state, action) {
+      const { loading } = action.payload;
       return {
         ...state,
-        loading: loading
+        loading: loading,
       };
-    }
-  }
-})
+    },
+  },
+});
 export const projectSliceActions = projectSlice.actions;
 export const projectSliceActionsTypes = projectSlice.name;
 export const projectSliceReducer = projectSlice.reducer;
